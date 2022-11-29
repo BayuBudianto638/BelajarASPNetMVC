@@ -1,0 +1,63 @@
+﻿@model BelajarASPNetMVC.Models.Companies.EditCompanyViewModel
+
+@{
+    ViewBag.Title = "Edit Company";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Edit Company</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Edit Company
+            </div>
+            <p></p>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.Id)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @style ="width:150px"}})
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new {@class ="control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Address, new {htmlAttributes = new { @class = "form-control", @syle="width:250px"}})
+                            @Html.ValidationMessageFor(model => model.Address, "", new {@class ="text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Country, htmlAttributes: new { @class="control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Country, new { htmlAttributes = new {@class= "form-control", @style = "width:150px"}})
+                            @Html.ValidationMessageFor(model => model.Country, "", new { @class="text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                            <button class="btn btn-default" onclick="location.href='@Url.Action("Index", "Company")';return false;">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

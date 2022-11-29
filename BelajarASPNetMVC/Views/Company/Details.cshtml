@@ -1,0 +1,61 @@
+﻿@model BelajarASPNetMVC.Models.Companies.CompanyModel
+
+@{
+    ViewBag.Title = "View Company";
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">View Company</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                View Company
+            </div>
+            <p></p>
+            <div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dt>
+                        @Html.DisplayFor(model => model.Name)
+                    </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </dt>
+                    <dt>
+                        @Html.DisplayFor(model => model.Address)
+                    </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Country)
+                    </dt>
+                    <dt>
+                        @Html.DisplayFor(model => model.Country)
+                    </dt>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "Company", new { id = Model.Id })';return false;">Edit</button>
+    <button class="btn btn-default" onclick="location.href='@Url.Action("Index", "Company")';return false;">Cancel</button>
+    <input type="button" value="Click" id="testButton" />
+</p>
+
+<script>
+    $(function() {
+        $("#testButton").click(function()
+        {
+            alert("Test Button");
+        });
+    });
+</script>
